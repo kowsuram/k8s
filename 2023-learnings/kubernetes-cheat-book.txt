@@ -1,0 +1,43 @@
+Minikube
+===================
+SSH into minikube
+-> minikube ssh
+To get minikube ip
+-> minikube ip
+
+
+NAMESPACES
+=============
+create namespace
+-> kubectl create namespace <namespace-name>
+list namespaces
+-> kubectl get namespaces
+describe namespace
+-> kubectl describe namespace <namespace-name>
+
+POD
+=============
+view pods
+-> kubectl get pods
+view container in pod
+-> kubectl describe pod <pod-name>
+view container logs
+-> kubectl logs <pod-name> -c <container-name>
+Accessing container shell
+-> kubectl exec -it <pod-name> -c <container-name> -- /bin/sh
+delete pod
+-> kubectl delete pod <pod-name> --namespace=<namespace-name>
+-> kubectl delete pod <pod-name> --namespace=<namespace-name> --grace-period=<seconds> --force
+
+
+Undeployment of pods
+======================
+#will be zeroing out the replicas; which will effectively stop the deployment keeps the deployment definition intace for future use.
+kubectl scale deployment nginx-deployment --replicas=0 -n kowsu
+
+
+
+Tailing pod logs
+=================
+kubectl logs -f <pod-name> -n <namespace>
+
